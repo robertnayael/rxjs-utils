@@ -1,0 +1,19 @@
+{
+  "name": "rxjs-utils",
+  "version": "0.0.1",
+  "description": "A collection of custom RxJS helpers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertnayael/rxjs-utils.git"
+  },
+  "author": "Robert Gulewicz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertnayael/rxjs-utils/issues"
+  },
+  "homepage": "https://github.com/robertnayael/rxjs-utils#readme"
+}
