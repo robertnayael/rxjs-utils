@@ -15,5 +15,24 @@
   "bugs": {
     "url": "https://github.com/robertnayael/rxjs-utils/issues"
   },
-  "homepage": "https://github.com/robertnayael/rxjs-utils#readme"
+  "homepage": "https://github.com/robertnayael/rxjs-utils#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "rxjs": "^6.5.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.3",
+    "ts-loader": "^6.0.3",
+    "tslint": "^5.17.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.5.2",
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4",
+    "webpack-dev-server": "^3.7.1",
+    "write-file-webpack-plugin": "^4.5.0"
+  }
 }
