@@ -15,6 +15,9 @@ export function preloadImage(url: string) {
         request.onreadystatechange = () =>
             request.readyState === 4 && subscriber.complete()
 
+        request.onprogress = ({ loaded, total }) =>
+            subscriber.next(loaded / total)
+
         return () => {
             request.onerror = null
             request.ontimeout = null
