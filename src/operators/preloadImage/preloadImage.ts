@@ -7,13 +7,19 @@ export function preloadImage(url: string) {
         request.send()
 
         request.onerror = () =>
-            subscriber.error(`Error loading image ${url}`)
+            subscriber.error(new Error(`Error loading image ${url}`))
 
         request.ontimeout = () =>
-            subscriber.error(`Request timeout: ${url}`)
+            subscriber.error(new Error(`Request timeout: ${url}`))
 
-        request.onreadystatechange = () =>
-            request.readyState === 4 && subscriber.complete()
+        request.onreadystatechange = () => {
+            if (request.readyState !== 4) {
+                return
+            }
+            request.status === 200
+                ? subscriber.complete()
+                : subscriber.error(new Error(`Error loading image ${url} (HTTP response status: ${request.status})`))
+        }
 
         request.onprogress = ({ loaded, total }) =>
             subscriber.next(loaded / total)
