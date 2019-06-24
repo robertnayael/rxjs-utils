@@ -26,9 +26,3 @@ preloadImage('url/to/some-image.jpg')
 // > Preload progress: 1
 // > Preload complete!
 ```
-
-## Under the hood
-
-This utility requires two API's: `XMLHttpRequest` and `Image`. The former provides progress information and does the actual fetching; the `Image` object is then created, and its `src` set to the image URL.
-
-The rationale for using these two is that with `XHMHttpRequest` alone, browser don't seem to hit the cache if the same resource is later requested in a non-AJAX context, e.g. if you set a `background-image` property in CSS. Whereas with `Image` alone, there's no way to check the download progress, and that information might be quite useful.
