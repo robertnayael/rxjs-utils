@@ -50,7 +50,7 @@ describe('preloadImage', () => {
 
     it('should abort preloading on unsubscription', () => {
         const preloader = preloadImage('some-image.jpg')
-        const subscription = preloader.subscribe(() => { })
+        subscription = preloader.subscribe(() => { })
         jest.runAllTimers()
 
         expect(request.readyState).toBe(1)
@@ -59,14 +59,13 @@ describe('preloadImage', () => {
         jest.runAllTimers()
 
         expect(request.readyState).toBe(0)
-
     })
 
     it('should report preloading progress', () => {
         let progress = null
 
         const preloader = preloadImage('some-image.jpg')
-        const subscription = preloader.subscribe(p => progress = p)
+        subscription = preloader.subscribe(p => progress = p)
         jest.runAllTimers()
 
         request.setResponseHeaders()
