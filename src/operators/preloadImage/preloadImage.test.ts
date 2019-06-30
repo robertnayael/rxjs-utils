@@ -77,13 +77,40 @@ describe('preloadImage', () => {
         expect(progress).toBe(1)
     })
 
-    xit('should complete once preloading is done', () => {
+    it('should complete once preloading is done', () => {
+        let completed = false
+
+        const preloader = preloadImage('some-image.jpg')
+        subscription = preloader.subscribe({ complete: () => completed = true })
+        jest.runAllTimers()
+
+        expect(completed).toBe(false)
+        request.respond(200)
+        expect(completed).toBe(true)
     })
 
-    xit('should throw on http error', () => {
+    it('should throw on http error', () => {
+        let error = false
+
+        const preloader = preloadImage('some-image.jpg')
+        subscription = preloader.subscribe({ error: () => error = true })
+        jest.runAllTimers()
+
+        expect(error).toBe(false)
+        request.respond(404)
+        expect(error).toBe(true)
     })
 
-    xit('should throw on timeout', () => {
+    it('should throw on timeout', () => {
+        let error = false
+
+        const preloader = preloadImage('some-image.jpg')
+        subscription = preloader.subscribe({ error: () => error = true })
+        jest.runAllTimers()
+
+        expect(error).toBe(false)
+        request.setRequestTimeout()
+        expect(error).toBe(true)
     })
 
 })
