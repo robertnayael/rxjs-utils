@@ -8,10 +8,6 @@ export function preloadImage(url: string) {
 }
 
 function setupRequest(url: string, subscriber: Subscriber<number>) {
-    if (!XMLHttpRequest) {
-        subscriber.error(new Error('XMLHttpRequest is not available!'))
-    }
-
     const request = new XMLHttpRequest()
     request.open('get', url)
     request.send()
